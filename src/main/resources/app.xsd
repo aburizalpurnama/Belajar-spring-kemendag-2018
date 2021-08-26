@@ -1,0 +1,47 @@
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="id" type="xs:integer"/>
+    <xs:element name="kode" type="xs:string"/>
+    <xs:element name="nama" type="xs:string"/>
+    <xs:element name="kodePos" type="xs:integer"/>
+    <xs:element name="pencarian">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nama"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="daftarKelurahanRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="pencarian"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="kelurahan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="id"/>
+                <xs:element ref="kode"/>
+                <xs:element ref="nama"/>
+                <xs:element ref="kodePos"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="daftarKelurahan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="kelurahan" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="daftarKelurahanResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="daftarKelurahan"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
